@@ -12,7 +12,8 @@ p t l s
 
 w qu h p
 
-convert it to one long string:
+Convert it to one long string:
+
 r e m q a c i j p t l s w qu h p
 
 Then run the program and enter the string when it asks for the board.

@@ -3,9 +3,13 @@ This is a simple python-2 boggle solver. It uses recursion and a dictionary of w
 This program requires the logging and time modules.
 
 To use this program take a board (qu can be used on a single tile), for example:
+
 r e m q
+
 a c i j
+
 p t l s
+
 w qu h p
 
 convert it to one long string:

@@ -1,5 +1,13 @@
 import logging
 import time
+import random
+
+def generate_random_board():
+    out = []
+    letters = "abcdefghijklmnopqrstuvwxyz"
+    for r in range(100):
+        out.append(letters[random.randint(0,25)])
+    return ' '.join(out)
 
 # I have no idea what bbbb is supposed to be, it is the worst variable in the history of python. However, it is the variable I chose and I hope you respect for the fact that I have no idea what I'm doing.
 bbbb = raw_input("Enter the grid values: ").upper().split()
@@ -13,11 +21,11 @@ def timeit(method):
 
     return timed
 
-def get_grid(grid):
+def get_grid(grid, sizeXY):
     return_dict = {}
-    for x in range(4):
-        for y in range(4):
-            return_dict.update({(x,y):str(grid[x*4+y])})
+    for x in range(sizeXY):
+        for y in range(sizeXY):
+            return_dict.update({(x,y):str(grid[x*sizeXY+y])})
     return return_dict
 
 def get_neighbours():
@@ -66,7 +74,7 @@ def get_words():
     return [path_to_word(p) for p in paths]
 
 
-def print_grid(grid):
+def print_grid(grid, X, Y):
     s = ''
     for x in range(X):
         for y in range(Y):
@@ -90,11 +98,11 @@ def word_score(word):
         return 11
 
 size = X, Y = 4, 4
-grid = get_grid(bbbb)
+grid = get_grid(bbbb, 4)
 neighbours = get_neighbours()
 dictionary, stems = get_dictionary()
 paths = []
-print_grid(grid)
+print_grid(grid, X, Y)
 words = get_words()
 wordset = set(words)
 totalwords = len(wordset)
